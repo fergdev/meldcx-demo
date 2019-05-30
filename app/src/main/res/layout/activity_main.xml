@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="nz.co.meldcxtest.ui.main.MainViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.main.MainActivity">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/webview_size">
+
+            <WebView
+                android:visibility="@{!viewModel.cachedShowing}"
+                android:id="@+id/webview"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/webview_size" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/webview_size"
+                android:visibility="@{viewModel.cachedShowing}"
+                app:imageFile="@{viewModel.cachedWebView}" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{viewModel.showLoading}" />
+
+        </FrameLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_url"
+            android:text="@={viewModel.urlEditTextValue}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.onGo()}"
+            android:text="@string/go" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.onCapture()}"
+            android:text="@string/capture" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.onHistory()}"
+            android:text="@string/history" />
+
+    </LinearLayout>
+</layout>

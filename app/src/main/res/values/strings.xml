@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">meldcxtest</string>
+    <string name="error">Error</string>
+    <string name="ok">Ok</string>
+    <string name="go">Go</string>
+    <string name="capture">Capture</string>
+    <string name="history">history</string>
+    <string name="enter_url">Enter url</string>
+    <string name="search_url">Search url</string>
+    <string name="empty_message">You have no captures</string>
+    <string name="capture_success">Capture success</string>
+</resources>
